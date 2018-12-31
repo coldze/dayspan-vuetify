@@ -403,6 +403,7 @@ export default {
 
   mounted()
   {
+    this.rebuild(undefined, true, undefined);
     if (!this.$dayspan.promptOpen)
     {
       this.$dayspan.promptOpen = (question, callback) => {
@@ -448,7 +449,7 @@ export default {
     {
       let type = forceType || this.currentType || this.types[ 2 ];
 
-      if (this.isType( type, aroundDay ) && !force)
+      if (!force && this.isType( type, aroundDay ))
       {
         return;
       }
